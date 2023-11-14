@@ -1,0 +1,1 @@
+window.runScript=async function(scriptContent,app,funcParams){const func="("+scriptContent+")(app, funcParams)";return eval(func)};

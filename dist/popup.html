@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amai MMO Tool</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="css/bootstrap-4.0.0.min.css" rel="stylesheet">
+    <link href="css/fontawesome-5.12.0.min.css" rel="stylesheet">
+    <link href="css/fontawesome-regular.min.css" rel="stylesheet">
+    <style>
+        body {
+            color: #000;
+            height: 100%;
+            overflow: scroll;
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: rgb(179, 179, 179);
+        }
+
+        input,
+        textarea {
+            background-color: #F3E5F5;
+            border-radius: 50px !important;
+            padding: 12px 15px 12px 15px !important;
+            width: 100%;
+            box-sizing: border-box;
+            border: none !important;
+            border: 1px solid #F3E5F5 !important;
+            font-size: 16px !important;
+            color: #000 !important;
+            font-weight: 400;
+        }
+
+        input:focus,
+        textarea:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: 1px solid #D500F9 !important;
+            outline-width: 0;
+            font-weight: 400;
+        }
+
+        button:focus {
+            -moz-box-shadow: none !important;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            outline-width: 0;
+        }
+
+        .card {
+            border-radius: 20px;
+            border: none;
+            background: transparent;
+        }
+
+        .card1 {
+            width: 50%;
+            padding: 20px 30px 10px 30px;
+        }
+
+        #logo {
+            width: 70px;
+            height: 60px;
+        }
+
+        .heading {
+            margin-bottom: 60px !important;
+        }
+
+        ::placeholder {
+            color: #000 !important;
+            opacity: 1;
+        }
+
+        :-ms-input-placeholder {
+            color: #000 !important;
+        }
+
+        ::-ms-input-placeholder {
+            color: #000 !important;
+        }
+
+        .form-control-label {
+            font-size: 12px;
+            margin-left: 15px;
+        }
+
+        .msg-info {
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        .btn-color {
+            border-radius: 50px;
+            color: #fff;
+            background-image: linear-gradient(to right, #FFD54F, #D500F9);
+            padding: 15px;
+            cursor: pointer;
+            border: none !important;
+            margin-top: 20px;
+        }
+
+        .btn-color:hover {
+            color: #fff;
+            background-image: linear-gradient(to right, #D500F9, #FFD54F);
+        }
+
+        .btn-white {
+            border-radius: 50px;
+            color: #D500F9;
+            background-color: #fff;
+            padding: 8px 40px;
+            cursor: pointer;
+            border: 2px solid #D500F9 !important;
+        }
+
+        .btn-white:hover {
+            color: #fff;
+            background-image: linear-gradient(to right, #FFD54F, #D500F9);
+        }
+
+        a {
+            color: #000;
+        }
+
+        a:hover {
+            color: #000;
+            /* text-decoration: none; */
+        }
+
+        .bottom {
+            width: 100%;
+            margin-top: 20px !important;
+        }
+
+        .sm-text {
+            font-size: 15px;
+        }
+
+        @media screen and (max-width: 992px) {
+            .card1 {
+                width: 100%;
+                padding: 20px 30px 10px 30px;
+            }
+
+            .right {
+                margin-top: 100px !important;
+                margin-bottom: 100px !important;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .container {
+                padding: 10px !important;
+            }
+
+            .card2 {
+                padding: 50px;
+            }
+
+            .right {
+                margin-top: 50px !important;
+                margin-bottom: 50px !important;
+            }
+        }
+
+        #card__profile {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+
+        .container {
+            border-radius: 20px;
+            width: 100vw;
+            /* min-height: 100vh; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            margin-top: 50px;
+        }
+
+        .card__info {
+            position: relative;
+            width: 350px;
+            height: 190px;
+            background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);
+            transition: 0.5s;
+        }
+
+        .card__info:hover {
+            height: 300px;
+        }
+
+        .card__info .lines {
+            position: absolute;
+            inset: 3px;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .card__info .lines::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 120px;
+            background: linear-gradient(transparent, #45f3ff, #45f3ff, #45f3ff, transparent);
+            animation: animate 4s linear infinite;
+        }
+
+        .card__info .lines::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: #292929;
+        }
+
+        .card__info .imageBox {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 130px;
+            height: 130px;
+            background: #000;
+            transition: 0.5s;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .card__info:hover .imageBox {
+            width: 180px;
+            height: 180px;
+        }
+
+        .card__info .imageBox::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 150px;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(transparent, #ff3c7b, #ff3c7b, #ff3c7b, transparent);
+            animation: animate 4s linear infinite;
+        }
+
+        .card__info .imageBox::after {
+            content: '';
+            position: absolute;
+            inset: 3px;
+            background: #292929;
+        }
+
+        .card__info .imageBox img {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            height: 10px;
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            filter: grayscale(1);
+            transition: 0.5s;
+            z-index: 1;
+        }
+
+        .card__info:hover .imageBox img {
+            filter: grayscale(0);
+        }
+
+
+        @keyframes animate {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        .card__info .content {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            transition: 0.5s;
+        }
+
+        .card__info .content .details {
+            width: 100%;
+            text-align: center;
+            transition: 0.5s;
+            transform: translateY(115px);
+        }
+
+        .card__info:hover .content .details {
+            transform: translateY(100px);
+        }
+
+        .card__info .content .details h2 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #45f3ff;
+            line-height: 1.2rem;
+        }
+
+        .card__info .content .details h2 span {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .card__info .content .details .info {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 30px 0;
+        }
+
+        .card__info .content .details .info h3 {
+            font-size: 1rem;
+            color: #45f3ff;
+            line-height: 1.2rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .banner {
+            width: 100vw;
+            margin-top: 15px;
+        }
+
+        .social__container {
+            display: flex;
+            justify-content: space-around;
+            margin-left: 50px;
+            margin-right: 20px;
+        }
+
+        .social {
+            height: 30px;
+            width: 30px;
+            margin-right: 20px;
+            cursor: pointer;
+        }
+
+        .download__btn {
+            height: 20px;
+            width: 20px;
+        }
+
+        .header__line {
+            border-top: 1px solid white;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+        }
+
+        .pop-outin {
+            animation: 2s anim-popoutin ease infinite;
+        }
+
+        @keyframes anim-popoutin {
+            0% {
+                color: white;
+                transform: scale(0);
+                opacity: 0;
+                text-shadow: 0 0 0 rgba(0, 0, 0, 0);
+            }
+
+            25% {
+                color: black;
+                transform: scale(2);
+                opacity: 1;
+                text-shadow: 3px 10px 5px rgba(0, 0, 0, 0.5);
+            }
+
+            50% {
+                color: white;
+                transform: scale(1);
+                opacity: 1;
+                text-shadow: 1px 0 0 rgba(0, 0, 0, 0);
+            }
+
+            100% {
+                /* animate nothing to add pause at the end of animation */
+                transform: scale(1);
+                opacity: 1;
+                text-shadow: 1px 0 0 rgba(0, 0, 0, 0);
+            }
+        }
+
+        #menu {
+            height: 52px;
+        }
+
+        .tabs {
+            left: 50%;
+            transform: translateX(-50%);
+            position: relative;
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+            border-radius: 5px;
+        }
+
+        .tabs input[name=tab-control] {
+            display: none;
+        }
+
+        .tabs .content section h2,
+        .tabs ul li label {
+            font-family: "Montserrat";
+            font-weight: bold;
+            font-size: 18px;
+            color: #428BFF;
+            margin-bottom: 0;
+        }
+
+        .tabs ul {
+            list-style-type: none;
+            padding-left: 0;
+            display: flex;
+            flex-direction: row;
+            /* margin-bottom: 10px; */
+            justify-content: space-between;
+            align-items: flex-end;
+            flex-wrap: wrap;
+            padding-top: 8px;
+        }
+
+        .tabs ul li {
+            box-sizing: border-box;
+            flex: 1;
+            width: 50%;
+            padding: 0 10px;
+            text-align: center;
+        }
+
+        .tabs ul li label {
+            transition: all 0.3s ease-in-out;
+            color: #929daf;
+            padding: 5px auto;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: block;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            white-space: nowrap;
+            -webkit-touch-callout: none;
+        }
+
+        .tabs ul li label br {
+            display: none;
+        }
+
+        .tabs ul li label svg {
+            fill: #929daf;
+            height: 1.2em;
+            vertical-align: bottom;
+            margin-right: 0.2em;
+            transition: all 0.2s ease-in-out;
+        }
+
+        .tabs ul li label:hover,
+        .tabs ul li label:focus,
+        .tabs ul li label:active {
+            outline: 0;
+            color: #bec5cf;
+        }
+
+        .tabs ul li label:hover svg,
+        .tabs ul li label:focus svg,
+        .tabs ul li label:active svg {
+            fill: #bec5cf;
+        }
+
+        .tabs .slider {
+            position: relative;
+            width: 50%;
+            transition: all 0.33s cubic-bezier(0.38, 0.8, 0.32, 1.07);
+        }
+
+        .tabs .slider .indicator {
+            position: relative;
+            width: 50px;
+            max-width: 100%;
+            margin: 0 auto;
+            height: 4px;
+            background: #428BFF;
+            border-radius: 1px;
+        }
+
+        .tabs .content {
+            margin-top: 30px;
+        }
+
+        .tabs .content section {
+            display: none;
+            animation-name: content;
+            animation-direction: normal;
+            animation-duration: 0.3s;
+            animation-timing-function: ease-in-out;
+            animation-iteration-count: 1;
+            line-height: 1.4;
+        }
+
+        .tabs .content section h2 {
+            color: #428BFF;
+            display: none;
+        }
+
+        .tabs .content section h2::after {
+            content: "";
+            position: relative;
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: #428BFF;
+            margin-top: 5px;
+            left: 1px;
+        }
+
+        .tabs input[name=tab-control]:nth-of-type(1):checked~ul>li:nth-child(1)>label {
+            cursor: default;
+            color: #428BFF;
+        }
+
+        .tabs input[name=tab-control]:nth-of-type(1):checked~ul>li:nth-child(1)>label svg {
+            fill: #428BFF;
+        }
+
+        @media (max-width: 300px) {
+            .tabs input[name=tab-control]:nth-of-type(1):checked~ul>li:nth-child(1)>label {
+                background: rgba(0, 0, 0, 0.08);
+            }
+        }
+
+        .tabs input[name=tab-control]:nth-of-type(1):checked~.slider {
+            transform: translateX(0%);
+        }
+
+        .tabs input[name=tab-control]:nth-of-type(1):checked~.content>section:nth-child(1) {
+            display: block;
+        }
+
+        .tabs input[name=tab-control]:nth-of-type(2):checked~ul>li:nth-child(2)>label {
+            cursor: default;
+            color: #428BFF;
+        }
+
+        .tabs input[name=tab-control]:nth-of-type(2):checked~ul>li:nth-child(2)>label svg {
+            fill: #428BFF;
+        }
+
+        @media (max-width: 300px) {
+            .tabs input[name=tab-control]:nth-of-type(2):checked~ul>li:nth-child(2)>label {
+                background: rgba(0, 0, 0, 0.08);
+            }
+        }
+
+        .tabs input[name=tab-control]:nth-of-type(2):checked~.slider {
+            transform: translateX(100%);
+        }
+
+        .tabs input[name=tab-control]:nth-of-type(2):checked~.content>section:nth-child(2) {
+            display: block;
+        }
+
+        @keyframes content {
+            from {
+                opacity: 0;
+                transform: translateY(5%);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0%);
+            }
+        }
+
+        @media (max-width: 500px) {
+            .tabs ul li label {
+                white-space: initial;
+            }
+
+            .tabs ul li label br {
+                display: initial;
+            }
+
+            .tabs ul li label img {
+                height: 24px;
+            }
+        }
+
+        @media (max-width: 300px) {
+            .tabs ul li label {
+                padding: 5px;
+                border-radius: 5px;
+            }
+
+            .tabs ul li label span {
+                display: none;
+            }
+
+            .tabs .slider {
+                display: none;
+            }
+
+            .tabs .content {
+                margin-top: 20px;
+            }
+
+            .tabs .content section h2 {
+                display: block;
+            }
+        }
+    </style>
+</head>
+
+<body style="background: linear-gradient(43deg, rgb(65, 88, 208) 0%, rgb(200, 80, 192) 46%, rgb(255, 204, 112) 100%);">
+    <div class="" style="width: 450px;">
+        <div class="border-top" id="card__header">
+            <div class="p-2 d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-start align-items-center">
+                    <div class="pr-3">
+                        <img src="./favicon.png" style="height: 2.8em;">
+                    </div>
+                    <div class="font-weight-bold" style="font-size: 1.3em; color: white;">
+                        Amai MMO Tool
+                    </div>
+                </div>
+                <div class="font-weight-bold" style="color: white;">
+                    <div>v"1.1.1"</div>
+                </div>
+            </div>
+            <div id="hanako_message" style="font-size: 0.8rem;" class="text-center px-3 pb-3 ext-message d-none">
+                <a class="ext-link" target="__blank" href="" style="color: white;">
+                    <span class="pop-outin">
+                        Đã có phiên bản mới <strong id="hanako_new_version">Amai MMO Tool <span class="ext-version">"1.1.1"</span>
+                            </strong> cập nhật ngay
+                    </span>
+                </a>
+            </div>
+        </div>
+        <div class="border-top d-none" id="card__sub__header">
+            <div class="p-2 d-flex justify-content-center align-items-center">
+                <div class="d-flex justify-content-start align-items-center">
+                    <div class="pr-1">
+                        <img src="./favicon.png" style="height: 1.4em;">
+                    </div>
+                    <div class="font-weight-bold pr-1" style="font-size: 0.8em; color: white;">
+                        Amai MMO Tool
+                    </div>
+                    <div class="font-weight-bold " style="font-size: 0.8em; color: white;">
+                        v"1.1.1"
+                    </div>
+                </div>
+            </div>
+            <div id="hanako_message" style="font-size: 0.8rem;" class="text-center px-3 pb-3 ext-message d-none">
+                <a class="ext-link" target="__blank" href="" style="color: white;">
+                    <span class="pop-outin">
+                        Đã có phiên bản mới <strong id="hanako_new_version">Amai MMO Tool <span class="ext-version">v"1.1.1"</span>
+                            </strong> cập nhật ngay
+                    </span>
+                </a>
+            </div>
+        </div>
+        <hr class="header__line">
+        <div class="position-relative d-flex justify-content-center align-items-center">
+            <div class="card card1" id="card__login" >
+                <div class="row justify-content-center my-auto">
+                    <div class="col-md-8 col-10">
+                        <div class="form-group">
+                            <label class="form-control-label" style="color: white;">Email</label>
+                            <input type="text" id="email" name="email" placeholder="Enter your email address"
+                                class="form-control">
+                        </div>
+
+                        <div class="form-group">
+                            <label class="form-control-label" style="color: white;">Password</label>
+                            <input type="password" id="psw" name="psw" placeholder="Enter your password" class="form-control">
+                        </div>
+
+                        <div class="row justify-content-center my-3 px-3">
+                            <button class="btn-block btn-color" id="login__button">Login to Extension</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom text-center">
+                    <p href="#" class="sm-text mx-auto mb-3" style="color: white;">Don't have an account?<button
+                            class="btn btn-white ml-2">
+                            <a href="https://mmo-service.daominhtu.com" target="_blank">
+                                Create new
+                            </a>
+                        </button></p>
+                </div>
+            </div>
+            <div class="d-flex flex-column">
+                <div class="d-none" id="menu">
+                    <div class="tabs">
+                        <input type="radio" id="tab1" name="tab-control" checked>
+                        <input type="radio" id="tab2" name="tab-control">
+                        <ul>
+                            <li title="Account"><label for="tab1" role="button">
+                                    <img src="./images/user-solid.svg" alt="">
+                                    <br><span>Account</span></label></li>
+                            <li title="Support"><label for="tab2" role="button">
+                                    <img src="./images/headset-solid.svg" alt="">
+                                    <br><span>Support</span></label></li>
+                            <li id="logout" title="Logout"><label for="tab2" role="button">
+                                <img src="./images/logout.svg" alt="">
+                                <br><span>Logout</span></label>
+                            </li>
+                        </ul>
+                        <!-- <div class="slider">
+                            <div class="indicator"></div>
+                        </div> -->
+                        <div class="content">
+                            <section>
+                            </section>
+                            <section>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-none" id="card__profile">
+                    <div class="container">
+                        <div class="card__info">
+                            <div class="lines"></div>
+                            <div class="imageBox">
+                                <img id="ext-avatar" src="./favicon.png" alt="avatar">
+                            </div>
+                            <div class="content">
+                                <div class="details">
+                                    <h2><span id="ext-full_name">Admin</span><br /> <span id="ext-email">admin@gmail.com</span></h2>
+                                    <div class="info">
+                                        <h3><span>Gói Sử dụng:</span> <br /><span id="ext-coin">FREE</span></h3>
+                                        <h3><span>Ngày hết hạn:</span>  <br /><span id="ext-package_expired_at">2022-10-22 00:00:00</span></h3>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="https://mmo-service.daominhtu.com" target="_blank" rel="noopener noreferrer">
+                    <img id="ext-banner" src="" alt="" class="banner">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="border-bottom pb-4" id="card__bottom">
+            <div class="d-flex social__container">
+                <img src="./images/facebook.svg" alt="" class="social">
+                <img src="./images/twitter.svg" alt="" class="social">
+                <img src="./images/youtube.svg" alt="" class="social">
+                <img src="./images/instagram.svg" alt="" class="social">
+            </div>
+        </div> -->
+    </div>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/bootstrap-4.0.0.min.js"></script>
+    <script src="js/fontawesome-5.12.0.min.js"></script>
+    <script src="js/popup.bundle.js"></script>
+    <script src="https://kit.fontawesome.com/840607d036.js" crossorigin="anonymous"></script>
+</body>
+
+</html>

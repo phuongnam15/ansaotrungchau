@@ -1,0 +1,91 @@
+{
+  "author": "Amai MMO Tool",
+  "name": "Amai MMO Tool",
+  "description": "Amai MMO Tool is a collection of automation tools.",
+  "short_name": "Amai MMO Tool",
+  "version": "1.0",
+  "browser_action": {
+    "default_icon": {
+      "16": "favicon.png",
+      "24": "favicon.png",
+      "32": "favicon.png"
+    },
+    "default_title": "Amai MMO Tool",
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "16": "favicon.png",
+    "48": "favicon.png",
+    "128": "favicon.png"
+  },
+  "background": {
+    "scripts": [
+      "js/v2.js",
+      "js/worker.js",
+      "js/runscript.js",
+      "js/background.bundle.js"
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "js/runscript.js",
+        "js/front.bundle.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": false
+    }
+  ],
+  "permissions": [
+    "proxy",
+    "cookies",
+    "webRequest",
+    "webRequestBlocking",
+    "webNavigation",
+    "activeTab",
+    "tabs",
+    "<all_urls>",
+    "storage",
+    "unlimitedStorage",
+    "declarativeNetRequest"
+  ],
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "x-frame",
+        "enabled": false,
+        "path": "rulesets/x-frame.json"
+      },
+      {
+        "id": "overwrite-origin",
+        "enabled": false,
+        "path": "rulesets/overwrite-origin.json"
+      },
+      {
+        "id": "allow-credentials",
+        "enabled": false,
+        "path": "rulesets/allow-credentials.json"
+      },
+      {
+        "id": "allow-headers",
+        "enabled": false,
+        "path": "rulesets/allow-headers.json"
+      },
+      {
+        "id": "referer",
+        "enabled": false,
+        "path": "rulesets/referer.json"
+      },
+      {
+        "id": "csp",
+        "enabled": false,
+        "path": "rulesets/csp.json"
+      }
+    ]
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://mmo-service.daominhtu.com https://mmo.daominhtu.com; object-src 'self'",
+  "manifest_version": 2
+}
