@@ -199,9 +199,6 @@ cantang[12][0] = 2;
 cantang[12][1] = 9;
 cantang[12][2] = 1;
 
-console.log(cantang, 99999999999);
-
-
 var tennguoi;
 var gioitinh;
 //DL

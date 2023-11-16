@@ -315,7 +315,7 @@ An tứ hóa
 			var mm = today.getMonth() + 1; //January is 0!
 			var yyyy = today.getFullYear();	
 			var ngaygioam = convertSolar2Lunar(dd, mm, yyyy, 7.0);
-			console.log(ngaygioam, 'ngaygioam');
+			// console.log(ngaygioam, 'ngaygioam');
 
 			document.getElementById("ID_NAMXEM").selectedIndex = 0;
 			document.getElementById("ID_NAMXEM").value = parseInt(ngaygioam[2]);
@@ -326,7 +326,7 @@ An tứ hóa
 			document.getElementById("ID_GIOXEM").selectedIndex = 0;
 			document.getElementById("ID_GIOXEM").value = Math.floor(hh);
 			var xemnhuan = parseInt(ngaygioam[3]);
-			console.log(xemnhuan, "xemnhuan1123")
+			// console.log(xemnhuan, "xemnhuan1123")
 			if (xemnhuan == 1)
 				document.getElementById("ID_THANGXEMNHUAN").checked = true;
 			else document.getElementById("ID_THANGXEMNHUAN").checked = false;

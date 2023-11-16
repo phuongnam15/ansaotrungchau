@@ -63,7 +63,7 @@ function convertfromDL(ngaydl, thangdl, namdl, giodl) {
     nam = lunar[2];
     nhuan = lunar[3];
 
-    console.log(ngay , thang , nam, nhuan, "test")
+    // console.log(ngay , thang , nam, nhuan, "test")
 }
 
 function convertfromAL(ngay, thang, nam, nhuan, timeZone) {
@@ -192,7 +192,7 @@ function setup() {
     var setuptime1 = new Date();
     var timeline = new Date();
     id_diaban = 0;
-    console.log("bacot");
+    // console.log("bacot");
     // console.log(cannam, "cannam");
     // console.log(chinam, "chinam");
     // console.log(thang, "thang");

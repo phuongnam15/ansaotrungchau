@@ -531,7 +531,7 @@ function bacot(
                         context.fillText(tensao, x[temp] - 38 + 90 * 1, y[temp] + (d) * (4 + flg[temp]) - d + 42);
                     flg[temp]++;
                 }
-            console.log(temp, "temp");
+            // console.log(temp, "temp");
             return temp;
         }
     }
@@ -2038,8 +2038,8 @@ function bacot(
             context.fillText(namxemdl - nam + 1 + " tuổi âm", 560, 240 + l * 10);
         else
             context.fillText(namxemdl - nam + 1 + " tuổi", 560, 240 + l * 10);
-        console.log(namxemdl - nam + 1, "tuổi âm")
-        console.log(namxemdl - nam + 1, "tuổi ")
+        // console.log(namxemdl - nam + 1, "tuổi âm")
+        // console.log(namxemdl - nam + 1, "tuổi ")
         context.fillStyle = '#00008B';
         context.fillText(namxemdl, 420, 240 + l * 10);
         if (id_luunguyet == 1) {
@@ -2052,10 +2052,10 @@ function bacot(
                 var k = chingayxem;
                 g(j);
                 context.fillText(can[canngayxem], 660, 240 + l * 12);
-                console.log(can[canngayxem], "can[canngayxem]")
+                // console.log(can[canngayxem], "can[canngayxem]")
                 h(k);
                 context.fillText(chi[chingayxem], 710, 240 + l * 12);
-                console.log(chi[chingayxem], "chi[chingayxem]")
+                // console.log(chi[chingayxem], "chi[chingayxem]")
                 context.fillStyle = 'black';
                 context.fillText("Ngày xem", 330, 240 + l * 12);
                 context.fillStyle = '#00008B';
@@ -2064,9 +2064,9 @@ function bacot(
                 context.font = '  8pt Arial';
                 f(j, k);
                 context.fillText(ngayxem, 500, 240 + l * 12);
-                console.log(ngayxem, "ngayxem")
+                // console.log(ngayxem, "ngayxem")
                 context.fillText(ngaytuan[thu], 560, 240 + l * 12);
-                console.log(ngaytuan[thu], "ngaytuan[thu]")
+                // console.log(ngaytuan[thu], "ngaytuan[thu]")
                 if (ID_LUUTHOI == 1) {
                     context.fillStyle = 'black';
                     context.fillText("Giờ xem:", 330, 240 + l * 13);
@@ -2075,7 +2075,7 @@ function bacot(
                         context.fillText(gioxem + " h", 420, 240 + l * 13);
                     else
                         context.fillText("23-1", 420, 240 + l * 13);
-                    console.log(gioxem, "gioxem")
+                    // console.log(gioxem, "gioxem")
                     var j = cangioxem;
                     var k = chigioxem;
                     context.font = '  8pt Arial';
@@ -2083,10 +2083,10 @@ function bacot(
                     context.fillText("giờ xem", 500, 240 + l * 13);
                     g(j);
                     context.fillText(can[cangioxem], 660, 240 + l * 13);
-                    console.log(can[cangioxem], "can[cangioxem]")
+                    // console.log(can[cangioxem], "can[cangioxem]")
                     h(k);
                     context.fillText(chi[chigioxem], 710, 240 + l * 13);
-                    console.log(chi[chigioxem], "chi[chigioxem]")
+                    // console.log(chi[chigioxem], "chi[chigioxem]")
                 }
             }
         }
@@ -2135,7 +2135,7 @@ function bacot(
         context.font = '  8pt Arial'
         context.textAlign = 'left'
         context.fillStyle = 'black';
-        console.log(canthang, chithang, "line 2145")
+        // console.log(canthang, chithang, "line 2145")
         var j = checkcan(canthang - 9);
         var k = check(chithang - 9);
         g(j);
@@ -2299,7 +2299,6 @@ function bacot(
             var th = canth[j] + " " + chith[k];
             var th = parseInt(canth[j]) + parseInt(chith[k]);
             context.fillText(ccan[j] + " " + chi[k], x[i] - 145, y[i]);
-            console.log(ccan[j] + " " + chi[k], "nammmmmmmmmmm");
             j++;
         }
     }
@@ -3252,7 +3251,7 @@ function bacot(
             context.fillText("Tuần", xt[tuankhong], yt[tuankhong] + 152);
             context.font = ' 7pt Arial';
             context.fillText("Triệt", xt[trietkhong], yt[trietkhong] + 152);
-            console.log(trietkhong, "trietkhong1");
+            // console.log(trietkhong, "trietkhong1");
         } else {
             context.font = ' 7pt Arial';
             context.fillStyle = 'black';
@@ -3260,7 +3259,7 @@ function bacot(
             context.fillStyle = 'white';
             context.textAlign = 'center';
             context.fillText("Tuần-Triệt", xt[trietkhong], yt[trietkhong] + 152);
-            console.log(trietkhong, "trietkhong2");
+            // console.log(trietkhong, "trietkhong2");
 
         }
         if (saothem3 == "TCP") {
